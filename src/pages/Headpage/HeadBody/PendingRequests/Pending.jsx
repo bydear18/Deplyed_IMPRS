@@ -109,10 +109,10 @@ const Pending = () => {
                     mode: 'cors',
                     body: commentData
                   };
-                fetch("backimps-production.up.railway.app/comments/newComment", requestOptionsComment)
+                fetch("https://backimps-production.up.railway.app/comments/newComment", requestOptionsComment)
                 .then((response)=> response.json()
                                         ).then((data) => {
-                                            fetch("backimps-production.up.railway.app/comments/id?id=" + requestID, requestOptions).then((response)=> response.json()
+                                            fetch("https://backimps-production.up.railway.app/comments/id?id=" + requestID, requestOptions).then((response)=> response.json()
                                             ).then((data) => { 
                                                 setComments(data);
                                                 setEditable(true);
@@ -176,7 +176,7 @@ const Pending = () => {
             },
         };
         fetch(
-            "backimps-production.up.railway.app/records/acceptedStatus?requestID=" + requestID + 
+            "https://backimps-production.up.railway.app/records/acceptedStatus?requestID=" + requestID + 
             "&status=In Progress&email=" + email + 
             "&userID=" + userID + 
             "&date=" + currentDate + 
@@ -230,10 +230,10 @@ const Pending = () => {
                 mode: 'cors',
                 body: commentData
             };
-            fetch("backimps-production.up.railway.app/comments/newComment", requestOptionsComment)
+            fetch("https://backimps-production.up.railway.app/comments/newComment", requestOptionsComment)
             .then((response) => response.json())
             .then((data) => {
-                fetch("backimps-production.up.railway.app/records/rejectedStatus?requestID=" + requestID + "&status=Rejected&email=" + email + "&userID=" + userID + "&date=" + currentDate + "&role=" + role, requestOptions)
+                fetch("https://backimps-production.up.railway.app/records/rejectedStatus?requestID=" + requestID + "&status=Rejected&email=" + email + "&userID=" + userID + "&date=" + currentDate + "&role=" + role, requestOptions)
                     .then((response) => response.json())
                     .then((data) => {
                         showInfoPop(`Request Rejected!`, true);
@@ -294,7 +294,7 @@ const Pending = () => {
             },
         };
 
-        fetch("backimps-production.up.railway.app/requests/id?id=" + event.data.requestID + "&fileName=" + event.data.fileName, requestOptions)
+        fetch("https://backimps-production.up.railway.app/requests/id?id=" + event.data.requestID + "&fileName=" + event.data.fileName, requestOptions)
             .then((response) => response.json())
             .then((data) => {
                 setFileName(data['fileName']);
@@ -331,7 +331,7 @@ const Pending = () => {
                 setContactNumber(data['requesterNumber']);
 
 
-                fetch("backimps-production.up.railway.app/records/requestid?id=" + event.data.requestID, requestOptions)
+                fetch("https://backimps-production.up.railway.app/records/requestid?id=" + event.data.requestID, requestOptions)
                     .then((response) => response.json())
                     .then((data) => {
                         setStatus(data['status']);
@@ -349,7 +349,7 @@ const Pending = () => {
                             setStatus('Ready to Claim');
                             setStatusClass('capsuleCompleted');
                         }
-                        fetch("backimps-production.up.railway.app/comments/id?id=" + event.data.requestID, requestOptions)
+                        fetch("https://backimps-production.up.railway.app/comments/id?id=" + event.data.requestID, requestOptions)
                             .then((response) => response.json())
                             .then((data) => {
                                 setComments(data);
@@ -409,7 +409,7 @@ const Pending = () => {
             },
         };
 
-        fetch("backimps-production.up.railway.app/records/pending", requestOptions)
+        fetch("https://backimps-production.up.railway.app/records/pending", requestOptions)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');

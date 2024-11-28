@@ -94,11 +94,11 @@ const Account = () => {
               },
               };
     
-            fetch("backimps-production.up.railway.app/services/checkAuth?email=" + localStorage.getItem("email") + "&password=" + password, requestOptions).then((response)=> response.json()
+            fetch("https://backimps-production.up.railway.app/services/checkAuth?email=" + localStorage.getItem("email") + "&password=" + password, requestOptions).then((response)=> response.json()
             ).then((data) => {
                 if(data===true){
                     if(email!==localStorage.getItem("email")){
-                        fetch("backimps-production.up.railway.app/services/newEmail?newEmail=" + email + "&email=" + localStorage.getItem("email"), requestOptions2).then((response)=> response.json()
+                        fetch("https://backimps-production.up.railway.app/services/newEmail?newEmail=" + email + "&email=" + localStorage.getItem("email"), requestOptions2).then((response)=> response.json()
                         ).then((data) => {
                             localStorage.setItem("email", email);
                             setInfoStep(0);
@@ -116,7 +116,7 @@ const Account = () => {
                     }
 
                     if(firstName!==localStorage.getItem("firstName") || lastName!==localStorage.getItem("lastName")){
-                        fetch("backimps-production.up.railway.app/services/newName?firstName=" + firstName + "&lastName=" + lastName + "&email=" + email, requestOptions2).then((response)=> response.json()
+                        fetch("https://backimps-production.up.railway.app/services/newName?firstName=" + firstName + "&lastName=" + lastName + "&email=" + email, requestOptions2).then((response)=> response.json()
                         ).then((data) => {
                             setInfoStep(0);
                             setToConfirm('hide');
@@ -156,11 +156,11 @@ const Account = () => {
                       'Content-Type': 'application/json',
                   },
                   };
-                fetch("backimps-production.up.railway.app/services/checkAuth?email=" + localStorage.getItem("email") + "&password=" + password, requestOptions).then((response)=> response.json()
+                fetch("https://backimps-production.up.railway.app/services/checkAuth?email=" + localStorage.getItem("email") + "&password=" + password, requestOptions).then((response)=> response.json()
                 ).then((data) => {
                     console.log(data);
                     if(data===true){
-                            fetch("backimps-production.up.railway.app/services/newPassword?email=" + localStorage.getItem("email") + "&password=" + password, requestOptions2).then((response)=> response.json()
+                            fetch("https://backimps-production.up.railway.app/services/newPassword?email=" + localStorage.getItem("email") + "&password=" + password, requestOptions2).then((response)=> response.json()
                             ).then((data) => {
                                 setInfoStep(0);
                                 setDisabled(true);

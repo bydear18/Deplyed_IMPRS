@@ -110,10 +110,10 @@ const History = ({reqHistory}) => {
                     mode: 'cors',
                     body: commentData
                   };
-                fetch("backimps-production.up.railway.app/comments/newComment", requestOptionsComment)
+                fetch("https://backimps-production.up.railway.app/comments/newComment", requestOptionsComment)
                 .then((response)=> response.json()
                                         ).then((data) => {
-                                            fetch("backimps-production.up.railway.app/comments/id?id=" + requestID, requestOptions).then((response)=> response.json()
+                                            fetch("https://backimps-production.up.railway.app/comments/id?id=" + requestID, requestOptions).then((response)=> response.json()
                                             ).then((data) => { 
                                                 setComments(data);
                                                 setEditable(true);
@@ -144,7 +144,7 @@ const History = ({reqHistory}) => {
               'Content-Type': 'application/json',
             },
             };
-            fetch("backimps-production.up.railway.app/records/completedStatus?requestID=" + requestID + "&status=Completed&email=" + email  + "&userID=" + userID + "&date=" + currentDate, requestOptions).then((response)=> response.json()
+            fetch("https://backimps-production.up.railway.app/records/completedStatus?requestID=" + requestID + "&status=Completed&email=" + email  + "&userID=" + userID + "&date=" + currentDate, requestOptions).then((response)=> response.json()
             ).then((data) => {window.location.reload();})
             .catch(error =>
                 {
@@ -195,7 +195,7 @@ const History = ({reqHistory}) => {
           },
           };
 
-          fetch("backimps-production.up.railway.app/requests/id?id=" + event.data.requestID + "&fileName=" + event.data.fileName, requestOptions).then((response)=> response.json()
+          fetch("https://backimps-production.up.railway.app/requests/id?id=" + event.data.requestID + "&fileName=" + event.data.fileName, requestOptions).then((response)=> response.json()
             ).then((data) => { 
                 setFileName(data['fileName']);
                 setDepartment(data['department']);
@@ -231,7 +231,7 @@ const History = ({reqHistory}) => {
                 setRequesterEmail(data['requesterEmail']);
                 setRequesterName(data['requesterName']);
                 setContactNumber(data['requesterNumber']);
-                fetch("backimps-production.up.railway.app/records/requestid?id=" + event.data.requestID, requestOptions).then((response)=> response.json()
+                fetch("https://backimps-production.up.railway.app/records/requestid?id=" + event.data.requestID, requestOptions).then((response)=> response.json()
                 ).then((data) => { 
                     setStatus(data['status']);
                     if(data['status'] === 'Rejected'){
@@ -260,7 +260,7 @@ const History = ({reqHistory}) => {
                         setStatus('Claimed');
                         setStatusClass('capsuleCompleted');
                     } 
-                    fetch("backimps-production.up.railway.app/comments/id?id=" + event.data.requestID, requestOptions).then((response)=> response.json()
+                    fetch("https://backimps-production.up.railway.app/comments/id?id=" + event.data.requestID, requestOptions).then((response)=> response.json()
                     ).then((data) => { 
                         setComments(data);
                         if(data[0].sentBy == 'Head'){
@@ -340,7 +340,7 @@ const History = ({reqHistory}) => {
             },
         };
     
-        fetch("backimps-production.up.railway.app/records/all", requestOptions)
+        fetch("https://backimps-production.up.railway.app/records/all", requestOptions)
             .then((response) => response.json())
             .then((data) => {
                 const statusMap = {

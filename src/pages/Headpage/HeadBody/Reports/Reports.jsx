@@ -110,14 +110,14 @@ const Reports = () => {
 
     // Create an array of fetch promises
     const fetchPromises = [
-        fetch(`backimps-production.up.railway.app/records/getModules?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setModules(data)),
-        fetch(`backimps-production.up.railway.app/requests/getModuleCopies?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setModuleCopies(data)),
-        fetch(`backimps-production.up.railway.app/records/getOfficeForms?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setOfficeForms(data)),
-        fetch(`backimps-production.up.railway.app/requests/getOfficeFormCopies?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setOfficeCopies(data)),
-        fetch(`backimps-production.up.railway.app/records/getExams?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setExams(data)),
-        fetch(`backimps-production.up.railway.app/requests/getExamCopies?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setExamCopies(data)),
-        fetch(`backimps-production.up.railway.app/records/getManuals?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setManuals(data)),
-        fetch(`backimps-production.up.railway.app/requests/getManualCopies?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setManualCopies(data)),
+        fetch(`https://backimps-production.up.railway.app/records/getModules?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setModules(data)),
+        fetch(`https://backimps-production.up.railway.app/requests/getModuleCopies?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setModuleCopies(data)),
+        fetch(`https://backimps-production.up.railway.app/records/getOfficeForms?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setOfficeForms(data)),
+        fetch(`https://backimps-production.up.railway.app/requests/getOfficeFormCopies?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setOfficeCopies(data)),
+        fetch(`https://backimps-production.up.railway.app/records/getExams?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setExams(data)),
+        fetch(`https://backimps-production.up.railway.app/requests/getExamCopies?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setExamCopies(data)),
+        fetch(`https://backimps-production.up.railway.app/records/getManuals?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setManuals(data)),
+        fetch(`https://backimps-production.up.railway.app/requests/getManualCopies?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setManualCopies(data)),
     ];
 
     // Wait for all fetch promises to complete
@@ -155,7 +155,7 @@ const Reports = () => {
   const header = renderHeader();
 
   useEffect(() => {
-    fetch('backimps-production.up.railway.app/records/requestCounts')
+    fetch('https://backimps-production.up.railway.app/records/requestCounts')
       .then((response) => response.json())
       .then((data) => {
         const totalRequests =

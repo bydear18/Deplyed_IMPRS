@@ -81,7 +81,7 @@ const Dashboard = () => {
   });
 
   useEffect(() => {
-    fetch("backimps-production.up.railway.app/records/requestCounts")
+    fetch("https://backimps-production.up.railway.app/records/requestCounts")
       .then((response) => response.json())
       .then((data) => {
         setStatistics((prevState) => ({
@@ -113,7 +113,7 @@ const Dashboard = () => {
       },
     };
 
-    fetch("backimps-production.up.railway.app/records/all", requestOptions)
+    fetch("https://backimps-production.up.railway.app/records/all", requestOptions)
       .then((response) => response.json())
       .then((data) => {
         setValues(data);
@@ -149,7 +149,7 @@ const Dashboard = () => {
     };
   
     // Fetch all records from the backend
-    fetch(`backimps-production.up.railway.app/records/all`, requestOptions)
+    fetch(`https://backimps-production.up.railway.app/records/all`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
