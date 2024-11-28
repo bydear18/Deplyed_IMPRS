@@ -18,7 +18,7 @@ const NotificationButton = () => {
         'Content-Type': 'application/json',
       },
     };
-    fetch("http://localhost:8080/notifications/id?id=" + localStorage.getItem("userID"), requestOptions).then((response) => response.json()
+    fetch("backimps-production.up.railway.app/notifications/id?id=" + localStorage.getItem("userID"), requestOptions).then((response) => response.json()
     ).then((data) => { setValues(data); })
     .catch(error =>
       {
@@ -27,13 +27,13 @@ const NotificationButton = () => {
     );
 
     if (localStorage.getItem("isLoggedIn") === "true") {
-      fetch("http://localhost:8080/services/checkAdmin?email=" + localStorage.getItem("email"), requestOptions).then((response) => response.json()
+      fetch("backimps-production.up.railway.app/services/checkAdmin?email=" + localStorage.getItem("email"), requestOptions).then((response) => response.json()
       ).then((data) => {
         if (data !== true) {
           setNotifShow('show');
         } else {
           setNotifShow('hide');
-          fetch("http://localhost:8080/notifications/id?id=" + localStorage.getItem("userID"), requestOptions).then((response) => response.json()
+          fetch("backimps-production.up.railway.app/notifications/id?id=" + localStorage.getItem("userID"), requestOptions).then((response) => response.json()
           ).then((data) => { setValues(data); })
           .catch(error =>
             {

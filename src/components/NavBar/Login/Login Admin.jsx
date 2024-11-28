@@ -52,7 +52,7 @@ const LoginAdmin = () => {
         'Content-Type': 'application/json',
       },
     };
-    fetch(`http://localhost:8080/services/userLogin?email=${email}&password=${password}`, requestOptions)
+    fetch(`backimps-production.up.railway.app/services/userLogin?email=${email}&password=${password}`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data['message'] === 'Admin login') {

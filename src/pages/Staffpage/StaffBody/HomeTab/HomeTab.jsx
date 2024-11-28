@@ -45,7 +45,7 @@ const Hometab = () => {
             setButtonText('Save');
         } else {
             // End editing mode and send the data
-            fetch("http://localhost:8080/services/updateHomeDetails", requestOptions)
+            fetch("backimps-production.up.railway.app/services/updateHomeDetails", requestOptions)
                 .then((response) => response.json())
                 .then((data) => {
                     setEditing(false);
@@ -68,7 +68,7 @@ const Hometab = () => {
         };
     
         // Check if the user is an admin
-        fetch(`http://localhost:8080/services/checkAdmin?email=${localStorage.getItem("email")}`, requestOptions)
+        fetch(`backimps-production.up.railway.app/services/checkAdmin?email=${localStorage.getItem("email")}`, requestOptions)
             .then((response) => response.text())  // Fetch response as text
             .then((data) => {
                 console.log('Check Admin Response:', data);  // Log raw response for debugging
@@ -89,7 +89,7 @@ const Hometab = () => {
     
         // Fetch home data if not editing
         if (!editing) {
-            fetch("http://localhost:8080/services/getHomeDetails", requestOptions)
+            fetch("backimps-production.up.railway.app/services/getHomeDetails", requestOptions)
                 .then((response) => response.text())  // Read response as text
                 .then((data) => {
                     console.log('Home Data Response:', data);  // Log the raw response

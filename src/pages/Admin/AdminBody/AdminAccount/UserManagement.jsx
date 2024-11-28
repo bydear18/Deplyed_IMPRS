@@ -70,7 +70,7 @@ const UserManagement = () => {
     setSuccess(isSuccess);
   };
   const fetchData = () => {
-    fetch('http://localhost:8080/services/all')
+    fetch('backimps-production.up.railway.app/services/all')
       .then((response) => response.json())
       .then((data) => {
         const filteredUsers = data.filter(
@@ -102,7 +102,7 @@ const UserManagement = () => {
       },
     };
 
-    fetch('http://localhost:8080/services/all', requestOptions)
+    fetch('backimps-production.up.railway.app/services/all', requestOptions)
       .then((response) => response.json())
       .then((data) => {
         // Filter users based on role
@@ -127,7 +127,7 @@ const UserManagement = () => {
       body: JSON.stringify({ email: userEmail }),
     };
 
-    fetch('http://localhost:8080/services/updateAdminVerified', requestOptions)
+    fetch('backimps-production.up.railway.app/services/updateAdminVerified', requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {
@@ -156,7 +156,7 @@ const UserManagement = () => {
       body: JSON.stringify({ email: userEmail }),
     };
 
-    fetch('http://localhost:8080/services/declineUser', requestOptions)
+    fetch('backimps-production.up.railway.app/services/declineUser', requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {
@@ -199,7 +199,7 @@ const UserManagement = () => {
       body: JSON.stringify({ email: userEmail }),
     };
   
-    fetch('http://localhost:8080/services/deleteUser', requestOptions)
+    fetch('backimps-production.up.railway.app/services/deleteUser', requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {
@@ -293,19 +293,19 @@ const UserManagement = () => {
     }
 
 
-    fetch(`http://localhost:8080/services/exists?email=${email}`, requestOptionsGET)
+    fetch(`backimps-production.up.railway.app/services/exists?email=${email}`, requestOptionsGET)
         .then((response) => response.json())
         .then((data) => {
             if (data === true) {
               showInfoPop('That email is already in use! Please use another email.');
             } else {
-                fetch(`http://localhost:8080/services/exists?schoolId=${schoolId}`, requestOptionsGET)
+                fetch(`backimps-production.up.railway.app/services/exists?schoolId=${schoolId}`, requestOptionsGET)
                     .then((response) => response.json())
                     .then((data) => {
                         if (data === true) {
                           showInfoPop('That School ID is already in use! Please use another School ID.');
                         } else {
-                            fetch(`http://localhost:8080/services/NewStaffRegistration?firstName=${firstName}&lastName=${lastName}&password=${password}&email=${email}&schoolId=${schoolId}&role=${role}`, requestOptionsPOST)
+                            fetch(`backimps-production.up.railway.app/services/NewStaffRegistration?firstName=${firstName}&lastName=${lastName}&password=${password}&email=${email}&schoolId=${schoolId}&role=${role}`, requestOptionsPOST)
                                 .then((response) => response.json())
                                 .then(() => {
                                     setFirstName('');
@@ -356,7 +356,7 @@ const UserManagement = () => {
       }),
     };
   
-    fetch(`http://localhost:8080/services/updateStaff?firstName=${firstName}&lastName=${lastName}&password=${password}&email=${email}&schoolId=${schoolId}&role=${role}`, requestOptions)
+    fetch(`backimps-production.up.railway.app/services/updateStaff?firstName=${firstName}&lastName=${lastName}&password=${password}&email=${email}&schoolId=${schoolId}&role=${role}`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data.status) {

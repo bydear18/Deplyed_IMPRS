@@ -24,7 +24,7 @@ function AdminBody() {
             },
         };
 
-        fetch("http://localhost:8080/services/checkAdmin?email=" + localStorage.getItem("email"), requestOptions)
+        fetch("backimps-production.up.railway.app/services/checkAdmin?email=" + localStorage.getItem("email"), requestOptions)
             .then((response) => response.json())
             .then((data) => {
                 if (data !== true) {
