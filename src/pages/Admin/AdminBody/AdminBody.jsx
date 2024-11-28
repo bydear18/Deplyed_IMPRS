@@ -40,7 +40,8 @@ function AdminBody() {
             });
 
         // Set up WebSocket for real-time notifications
-        const ws = new WebSocket('wss://https://backimps-production.up.railway.app/ws/notifications');
+        const ws = new WebSocket('ws://localhost:8080/ws/notifications');
+
 
 
         ws.onopen = () => console.log('Connected to WebSocket for notifications');

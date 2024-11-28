@@ -3,7 +3,7 @@
     #accWhole {
         position: absolute;
         left: 25vw;
-        top: 11vw;
+        top: 20vw;
         /* margin-top: 40px;
         margin-left: 475px;
         margin-right: 475px;
@@ -174,15 +174,31 @@
 
 @media screen and (min-width:1368px){
     #accWhole {
-        position: absolute;
+        position: fixed;
         left: 25vw;
-        top: 11vw;
+        top: -18vw;
         /* margin-top: 40px;
         margin-left: 475px;
         margin-right: 475px;
         margin-bottom: 10px; */
     }
-    
+    #changeInformation {
+        display: flex;
+        flex-direction: column;
+        top:5vw;
+        position:absolute;
+        margin-left:14vw;
+        width:22vw;
+        height:18vw;
+        padding: 3vw;
+        z-index:3;
+        margin-top: 30vw;
+        background: linear-gradient(to bottom, rgb(250, 175, 175), #f8c631);
+        border-radius: 1vw !important;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+        justify-content: center;
+        align-items: center;
+    }
     #accCont {
         position: relative;
         width: 50vw;

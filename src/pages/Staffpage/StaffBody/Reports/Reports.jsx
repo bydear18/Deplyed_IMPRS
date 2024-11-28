@@ -30,73 +30,71 @@ const Reports = () => {
 
   const [values, setValues] = useState([
     {
-      fileType: 'Module',
-      number: modules,
-      copies: moduleCopies,
-    },
-    {
-      fileType: 'Office Form',
-      number: officeForms,
-      copies: officeCopies,
-    },
-    {
-      fileType: 'Exam',
-      number: exams,
-      copies: examCopies,
-    },
-    {
-      fileType: 'Manual',
-      number: manuals,
-      copies: manualCopies,
-    },
-  ]);
+        'fileType' : 'Module',
+        'number': modules,
+        'copies' : moduleCopies}
+    ,{
+        'fileType' : 'Office Form',
+        'number' : officeForms,
+        'copies' : officeCopies}
+    ,{
+        'fileType' : 'Exam',
+        'number' : exams,
+        'copies' : examCopies}
+    ,{
+        'fileType' : 'Manual',
+        'number' : manuals,
+        'copies' : manualCopies
+    }
+]);
 
-  const handleDays = (event) => {
+const handleDays = (event) => {
     setDates(event.target.value);
-  };
+}
 
-  const downloadReport = () => {
+const downloadReport = () => {
     const input = pdfRef.current;
-    html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('l', 'mm', 'a4', true);
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-      const imgWidth = canvas.width;
-      const imgHeight = canvas.height;
-      const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-      const imgX = (pdfWidth - imgWidth * ratio) / 2;
-      const imgY = 0;
-      pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
-      pdf.save('System Report.pdf');
-    });
+    html2canvas(input).then((canvas) =>{
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('l', 'mm', 'a4', true);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = pdf.internal.pageSize.getHeight();
+        const imgWidth = canvas.width;
+        const imgHeight = canvas.height;
+        const ratio = Math.min(pdfWidth/imgWidth, pdfHeight/imgHeight);
+        const imgX = (pdfWidth - imgWidth * ratio)/ 2;
+        const imgY = 0;
+        pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight*ratio);
+        pdf.save('System Report.pdf');
+    })
+}
+  
+const renderHeader = () => {
+      return (
+          <div id="historyHeader" className="flex">
+              <h1>System Report & User Statistics</h1>
+              <select id = 'days' onChange={(e) => handleDays(e)}>
+                        <option value='week' >Last 7 Days</option>
+                        <option value='2week' >Last 14 Days</option>
+                        <option value='3week' >Last 21 Days</option>
+                        <option value='month' >Last 30 Days</option>
+                        <option value='2month' >Last 60 Days</option>
+              </select>
+          </div>
+      );
   };
 
-  const renderHeader = () => {
-    return (
-      <div id="historyHeader" className="flex">
-        <h1 style={{color: '#fff'}}>System Report & User Statistics</h1>
-        <select id="days" onChange={(e) => handleDays(e)}>
-          <option value="week">Last 7 Days</option>
-          <option value="2week">Last 14 Days</option>
-          <option value="3week">Last 21 Days</option>
-          <option value="month">Last 30 Days</option>
-          <option value="2month">Last 60 Days</option>
-        </select>
-      </div>
-    );
-  };
-  useEffect(() => {
+useEffect(() => {
     const date = new Date();
-    if (dates === 'week') {
+    if(dates === 'week'){
         date.setDate(date.getDate() - 7);
-    } else if (dates === '2week') {
+    }else if (dates === '2week'){
         date.setDate(date.getDate() - 14);
-    } else if (dates === '3week') {
+    }else if (dates === '3week'){
         date.setDate(date.getDate() - 21);
-    } else if (dates === 'month') {
+    }else if (dates === 'month'){
         date.setDate(date.getDate() - 30);
-    } else if (dates === '2month') {
+    }else if (dates === '2month'){
         date.setDate(date.getDate() - 60);
     }
 
@@ -104,52 +102,101 @@ const Reports = () => {
         method: 'GET',
         mode: 'cors',
         headers: {
-            'Content-Type': 'application/json',
-        },
-    };
-
-    // Create an array of fetch promises
-    const fetchPromises = [
-        fetch(`https://backimps-production.up.railway.app/records/getModules?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setModules(data)),
-        fetch(`https://backimps-production.up.railway.app/requests/getModuleCopies?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setModuleCopies(data)),
-        fetch(`https://backimps-production.up.railway.app/records/getOfficeForms?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setOfficeForms(data)),
-        fetch(`https://backimps-production.up.railway.app/requests/getOfficeFormCopies?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setOfficeCopies(data)),
-        fetch(`https://backimps-production.up.railway.app/records/getExams?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setExams(data)),
-        fetch(`https://backimps-production.up.railway.app/requests/getExamCopies?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setExamCopies(data)),
-        fetch(`https://backimps-production.up.railway.app/records/getManuals?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setManuals(data)),
-        fetch(`https://backimps-production.up.railway.app/requests/getManualCopies?dates=${date.toISOString().substring(0, 10)}`, requestOptions).then(response => response.json()).then(data => setManualCopies(data)),
-    ];
-
-    // Wait for all fetch promises to complete
-    Promise.all(fetchPromises)
-        .then(() => {
-            setValues([
-                {
-                    fileType: 'Module',
-                    number: modules,
-                    copies: moduleCopies,
-                },
-                {
-                    fileType: 'Office Form',
-                    number: officeForms,
-                    copies: officeCopies,
-                },
-                {
-                    fileType: 'Exam',
-                    number: exams,
-                    copies: examCopies,
-                },
-                {
-                    fileType: 'Manual',
-                    number: manuals,
-                    copies: manualCopies,
-                },
-            ]);
-        })
-        .catch(error => {
+          'Content-Type': 'application/json',
+      },
+      };
+    
+    fetch("https://backimps-production.up.railway.app/records/getModules?dates=" + date.toISOString().substring(0,10), requestOptions).then((response)=> response.json()
+    ).then((data) => { setModules(data); 
+    })
+    .catch(error =>
+        {
             console.log(error);
-        });
-}, [dates]); // Removed unnecessary dependencies to avoid re-fetching on every change
+        }
+    );
+
+    fetch("https://backimps-production.up.railway.app/requests/getModuleCopies?dates=" + date.toISOString().substring(0,10), requestOptions).then((response)=> response.json()
+    ).then((data) => { setModuleCopies(data); 
+    })
+    .catch(error =>
+        {
+            console.log(error);
+        }
+    );
+
+    fetch("https://backimps-production.up.railway.app/records/getOfficeForms?dates=" + date.toISOString().substring(0,10), requestOptions).then((response)=> response.json()
+    ).then((data) => { setOfficeForms(data);})
+    .catch(error =>
+        {
+            console.log(error);
+        }
+    );
+
+    fetch("https://backimps-production.up.railway.app/requests/getOfficeFormCopies?dates=" + date.toISOString().substring(0,10), requestOptions).then((response)=> response.json()
+    ).then((data) => { setOfficeCopies(data);;
+    })
+    .catch(error =>
+        {
+            console.log(error);
+        }
+    );
+
+    fetch("https://backimps-production.up.railway.app/records/getExams?dates=" + date.toISOString().substring(0,10), requestOptions).then((response)=> response.json()
+    ).then((data) => { setExams(data); })
+    .catch(error =>
+        {
+            console.log(error);
+        }
+    );
+
+    fetch("https://backimps-production.up.railway.app/requests/getExamCopies?dates=" + date.toISOString().substring(0,10), requestOptions).then((response)=> response.json()
+    ).then((data) => { setExamCopies(data); 
+    })
+    .catch(error =>
+        {
+            console.log(error);
+        }
+    );
+
+    fetch("https://backimps-production.up.railway.app/records/getManuals?dates=" + date.toISOString().substring(0,10), requestOptions).then((response)=> response.json()
+    ).then((data) => { setManuals(data);})
+    .catch(error =>
+        {
+            console.log(error);
+        }
+    );
+
+    fetch("https://backimps-production.up.railway.app/requests/getManualCopies?dates=" + date.toISOString().substring(0,10), requestOptions).then((response)=> response.json()
+    ).then((data) => { setManualCopies(data);
+    })
+    .catch(error =>
+        {
+            console.log(error);
+        }
+    );
+
+    setValues([
+        {
+            'fileType' : 'Module',
+            'number': modules,
+            'copies' : moduleCopies}
+        ,{
+            'fileType' : 'Office Form',
+            'number' : officeForms,
+            'copies' : officeCopies}
+        ,{
+            'fileType' : 'Exam',
+            'number' : exams,
+            'copies' : examCopies}
+        ,{
+            'fileType' : 'Manual',
+            'number' : manuals,
+            'copies' : manualCopies
+        }
+    ]);
+}, [dates, modules, officeForms, manuals, exams, moduleCopies, officeCopies, examCopies, manualCopies]);
+
+
 
 
   const header = renderHeader();

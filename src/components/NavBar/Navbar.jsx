@@ -43,14 +43,6 @@ const Navbar = () => {
       setAlert('hide');
     }
 
-    const handleUserIconClick = () => setIsModalOpen(true);
-    const closeModal = () => {
-        setIsModalOpen(false);
-    };
-
-    const preventOutsideClick = (e) => {
-        e.stopPropagation(); 
-    };
 
     useEffect(() => {
         const userID = localStorage.getItem("userID");
@@ -72,6 +64,12 @@ const Navbar = () => {
         }
     }, []);
 
+    // Modal management
+    const handleUserIconClick = () => setIsModalOpen(true);
+    const closeModal = () => {
+        setIsModalOpen(false);
+      };
+    
 
     // Alert management
     const showAlertMessage = (message) => {
@@ -162,9 +160,10 @@ const Navbar = () => {
 
     return (
         <div className='navBar flex'>
+            
             {isModalOpen && (
                 <div id='modalOverlay'>
-                    <div id='accWhole' onClick={preventOutsideClick}>
+                    <div id='accWhole'  style={{marginTop: '-2vw'}}>
                         <div id="infoPopOverlay" className={alert}></div>
                         <div id="infoPop" className={alert}>
                             <p>{alertMsg}</p>
@@ -190,7 +189,7 @@ const Navbar = () => {
                             </div>
                             <div id='accountID'>SCHOOL ID: <p id='accountNumber'>{schoolId}</p></div>
                         </div>
-                        <div id="overlay" className={show} onClick={preventOutsideClick}></div> 
+                        <div id="overlay" className={show} onClick={closeModal}></div>
                         <div id="changeInformation" className={show}>
                             <h1>Confirm</h1>
                             <p>Please input password to continue</p>
@@ -222,7 +221,7 @@ const Navbar = () => {
                     </Popup>
                     <button id='userButt' onClick={handleUserIconClick}>
                         <HiUser  id='userIcon'/>
-                    </button>
+                        </button>
                 </div>
             </div>
         </div>

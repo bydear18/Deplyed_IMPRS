@@ -182,7 +182,7 @@ function PrintReq({ onRequestSubmitted }) {
                                     body: data
                                 };
     
-                                fetch("backimps-production.up.railway.app/requests/newRequest", requestOptions)
+                                fetch("https://backimps-production.up.railway.app/requests/newRequest", requestOptions)
                                     .then((response) => response.json())
                                     .then((data) => {
                                         if (comment !== '') {
@@ -191,7 +191,7 @@ function PrintReq({ onRequestSubmitted }) {
                                                 mode: 'cors',
                                                 body: commentData,
                                             };
-                                            fetch("backimps-production.up.railway.app/comments/newComment", requestOptionsComment)
+                                            fetch("https://backimps-production.up.railway.app/comments/newComment", requestOptionsComment)
                                                 .then((response) => response.json())
                                                 .then((data) => {
                                                     console.log(data);
@@ -217,7 +217,7 @@ function PrintReq({ onRequestSubmitted }) {
                     mode: 'cors',
                     body: data,
                 };
-                fetch("backimps-production.up.railway.app/requests/newRequest", requestOptions)
+                fetch("https://backimps-production.up.railway.app/requests/newRequest", requestOptions)
                     .then((response) => response.json())
                     .then((data) => {
                         if (comment !== '') {
@@ -226,7 +226,7 @@ function PrintReq({ onRequestSubmitted }) {
                                 mode: 'cors',
                                 body: commentData,
                             };
-                            fetch("backimps-production.up.railway.app/comments/newComment", requestOptionsComment)
+                            fetch("https://backimps-production.up.railway.app/comments/newComment", requestOptionsComment)
                                 .then((response) => response.json())
                                 .then((data) => {
                                     console.log(data);
@@ -277,7 +277,7 @@ function PrintReq({ onRequestSubmitted }) {
         }
     
         if (value !== 'Select') {
-            fetch("backimps-production.up.railway.app/records/generateid?fileType=" + value, requestOptions).then((response)=> response.json()
+            fetch("https://backimps-production.up.railway.app/records/generateid?fileType=" + value, requestOptions).then((response)=> response.json()
             ).then((data) => { setRequestID(tag + (data+1).toString());})
             .catch(error =>
             {

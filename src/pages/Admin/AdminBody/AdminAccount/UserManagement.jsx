@@ -284,26 +284,25 @@ const UserManagement = () => {
     const isValidEmail = /^[a-zA-Z0-9._%+-]+@cit\.edu$/;
 
     if (!firstName || !lastName || !email || !password || !schoolId) {
-      showInfoPop('All fields are required.');
+        showInfoPop('All fields are required.');
         return;
     }
     if (!email.match(isValidEmail)) {
-      showInfoPop('Please use a valid cit.edu email address to register.');
+        showInfoPop('Please use a valid cit.edu email address to register.');
         return;
     }
-
 
     fetch(`https://backimps-production.up.railway.app/services/exists?email=${email}`, requestOptionsGET)
         .then((response) => response.json())
         .then((data) => {
             if (data === true) {
-              showInfoPop('That email is already in use! Please use another email.');
+                showInfoPop('That email is already in use! Please use another email.');
             } else {
                 fetch(`https://backimps-production.up.railway.app/services/exists?schoolId=${schoolId}`, requestOptionsGET)
                     .then((response) => response.json())
                     .then((data) => {
                         if (data === true) {
-                          showInfoPop('That School ID is already in use! Please use another School ID.');
+                            showInfoPop('That School ID is already in use! Please use another School ID.');
                         } else {
                             fetch(`https://backimps-production.up.railway.app/services/NewStaffRegistration?firstName=${firstName}&lastName=${lastName}&password=${password}&email=${email}&schoolId=${schoolId}&role=${role}`, requestOptionsPOST)
                                 .then((response) => response.json())
@@ -314,7 +313,7 @@ const UserManagement = () => {
                                     setEmail('');
                                     setSchoolId('');
                                     showInfoPop('Successfully Added Staff');
-                                    
+                                    closeModal(); // Close the modal after successful addition
                                 })
                                 .catch(error => {
                                     console.log(error);
@@ -331,6 +330,7 @@ const UserManagement = () => {
             console.log(error);
         });
 };
+
 
   const handleEditStaff = (user) => {
     setUserToEdit(user);
@@ -474,7 +474,7 @@ const UserManagement = () => {
                         type="text"
                         value={schoolId}
                         onChange={(e) => setSchoolId(e.target.value)}
-                        placeholder="School ID (xx-xxxx-xxx)"
+                        placeholder="School ID"
                       />
                     </label>
                   </div>
@@ -556,7 +556,7 @@ const UserManagement = () => {
                         type="text"
                         value={schoolId}
                         onChange={(e) => setSchoolId(e.target.value)}
-                        placeholder="School ID (xx-xxxx-xxx)"
+                        placeholder="School ID"
                       />
                     </label>
                   </div>
