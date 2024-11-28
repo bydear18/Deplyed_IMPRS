@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.form-container {
+    max-width: 1000px;
+    background: linear-gradient(to bottom, rgb(250, 175, 175), #f8c631);
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(194, 169, 169, 0.1);
+    border-radius: 8px;
+    margin-top: 50px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.column label {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.column input,
+.column select {
+    margin-bottom: 5px;
+    padding: 10px;
+    font-size: 14x;
+    width: 80%;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+.register-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.register-button button {
+    background-color: #8f271a;
+    color: #fcbd12;
+    width: 30%;
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.register-button button:hover {
+    background-color: #752015;
+}
+
+/* Media query for 2090x1480 or smaller */
+@media screen and (min-width: 2090px) and (min-height: 1480px) {
+    .form-row {
+        flex-direction: column;
+    }
+    .form-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        margin-top: 30px;
+        background-color: #f4f4f4;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .column label {
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+    
+    .column input,
+    .column select {
+        margin-bottom: 5px;
+        padding: 10px;
+        width: 70%;
+        font-size: 14x;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+    }
+    
+    .column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

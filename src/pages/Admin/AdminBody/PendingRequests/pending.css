@@ -1,0 +1,395 @@
+#pendingTable {
+    transform:scale(0.8);
+    width:100vw;
+    border-radius: 1vw !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+}
+
+
+#typeReq {
+    position:absolute;
+    width:7vw;
+    text-align: center;
+
+    margin-top: 0.3vw;
+    margin-left: 12vw;
+    font-size: 1vw;
+
+    font-weight: 700;
+}
+
+
+#requestBox{
+
+    top:3vw;
+    position:absolute;
+    margin-left:16.3vw;
+    width: 65vw;
+    height: 85vh;
+
+    padding:2.5%;
+    z-index:3;
+    background-color: rgba(235, 235, 235,0.9);
+    border-radius: 1vw !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+}
+
+
+#requestFrom {
+    margin-left: 0.2vw;
+    margin-top: 1.8vw;
+    margin-bottom: 1vw;
+}
+
+#historyHeader{
+    justify-content: space-between;
+}
+
+#deetCommentBody{
+    top:4vw;
+    position:absolute;
+    margin-left: 12vw;
+    width:36vw;
+    height:23vw;
+    padding:2.5%;
+    z-index:4;
+    background-color: rgba(235, 235, 235,0.98);
+    border-radius: 1vw !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+}
+
+#overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    background-color: rgba(128,128,128,0.5);
+}
+
+
+.show{
+    display:block;
+}
+
+.hide{
+    display:none;
+}
+
+#columnizer {
+    position: absolute;
+    right: 3vw;
+    bottom: 2.5vw;
+    display: flex;
+}
+
+.pendButtons {
+    z-index: 1;
+    width: 8vw;
+    height: 2.3vw;
+    font-size: 1vw;
+    border-radius: 0.6vw;
+    font-weight: bold;
+    border:0;
+    margin-left: 2vw;
+    background-color: #1bb348;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+#approved {
+    color: #f5f5f5;
+    border-width: 0.1vw;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+#approved:hover {
+        border-style: solid;
+        border-width: 0.1vw;
+        color: #1bb348;
+        box-shadow: inset 200px 0 0 0 #ececec;
+}
+
+#rejected {
+    background-color: #F03419;
+}
+
+#rejected {
+    color: #f5f5f5;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+#rejected:hover {
+        border-style: solid;
+        border-width: 0.1vw;
+        color: #F03419;
+        box-shadow: inset 200px 0 0 0 #ececec;
+}
+
+#commBod {
+    display: flex;
+    flex-direction: column;
+}
+
+#commHead {
+    border-style: solid;
+    font-size: 1.3vw;
+    margin-top: 0.5vw;
+    font-weight: 700;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+#commContent {
+    border-style: solid;
+    resize: none;
+    color: black;
+    margin-top: 0.5vw;
+    height: 12vw !important;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+#inAdd {
+    margin-left: 26vw;
+    margin-top: 1vw;
+    width: 7vw;
+    height: 1.7vw;
+    font-size: 0.8vw;
+    border-radius: 0.6vw;
+    font-weight: bold;
+    border:0;
+    background-color: #57adfd;
+    color: white;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+#inAdd:hover {
+    border-style: solid;
+    border-width: 0.1vw;
+    color: #57adfd;
+    box-shadow: inset 200px 0 0 0 #ececec;
+}
+
+#tableOfComments {
+    transform: scale(0.85);
+    width: 40vw;
+    bottom: 24vw;
+    margin-left: 22vw;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+}
+
+/*POPUP DETAILS*/
+
+/*First Line*/
+
+#firstLine {
+    display: flex;
+}
+
+#requestID {
+    font-weight: 700;
+    font-size: 2vw;
+}
+
+.capsulePending {
+    text-align: center;
+    width: 6.5vw;
+    font-size: 0.7vw;
+    font-weight: 700;
+    height: 1.2vw;
+    padding: 0;
+    border-style: solid;
+    border-width: 0.1vw;
+    border-color: rgb(248, 198, 33);
+    border-radius: 2vw;
+    margin-top: 1.2dvh;
+    margin-left: 1.4vw;
+    color: white;
+    background-color: rgb(240, 158, 34);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.capsuleRejected {
+    text-align: center;
+    width: 6.5vw;
+    font-size: 0.7vw;
+    font-weight: 700;
+    height: 1.2vw;
+    padding: 0;
+    border-style: solid;
+    border-width: 0.1vw;
+    border-color: rgb(237,72,73);
+    border-radius: 2vw;
+    margin-top: 1.2dvh;
+    margin-left: 1.4vw;
+    color: white;
+    background-color: rgb(237,72,73);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.capsuleProgress {
+    text-align: center;
+    width: 6.5vw;
+    font-size: 0.7vw;
+    font-weight: 700;
+    height: 1.2vw;
+    padding: 0;
+    border-style: solid;
+    border-width: 0.1vw;
+    border-color: rgb(41, 151, 253);
+    border-radius: 2vw;
+    margin-top: 1.2dvh;
+    margin-left: 1.4vw;
+    color: white;
+    background-color: rgb(47, 153, 224);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.capsuleCompleted {
+    text-align: center;
+    width: 6.5vw;
+    font-size: 0.7vw;
+    font-weight: 700;
+    height: 1.2vw;
+    padding: 0;
+    border-style: solid;
+    border-width: 0.1vw;
+    border-color: rgb(65, 163, 52);
+    border-radius: 2vw;
+    margin-top: 1.2dvh;
+    margin-left: 1.4vw;
+    color: white;
+    background-color: rgb(56, 114, 29);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+#typeOfFile {
+    margin-top: 1dvh;
+    margin-left: 1vw;
+    text-transform: uppercase;
+    font-size: 1.1vw;
+    font-weight: 700;
+}
+
+.dates {
+    margin-left: 12vw;
+}
+
+#dateRequest {
+    font-weight:bold;
+}
+
+#dateUse {
+    font-weight: bold;
+}
+
+#requester {
+    margin-top: -14px;
+}
+
+#userID {
+    font-size: 1vw;
+    font-weight: 600;
+    color: var(--PrimaryColor);
+}
+
+#fileDeets {
+    font-weight: 700;
+    font-size: 0.8vw;
+}
+
+/*Second Line*/
+
+#secondLine {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.8vw;
+}
+
+#nameOfFile {
+    width: 17vw;
+    font-size: 0.7vw;
+    margin-top: -0.5vw;
+    margin-left: 0.5vw;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+#descriptionOfFile {
+    font-size: 0.7vw;
+    color: black;
+    resize: none;
+    width: 21.2vw;
+    height: 5vw !important;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+/*Third Line*/
+
+#thirdLine {
+    display: flex;
+    margin-top: 0.3vw;
+}
+
+#hatagExam {
+    font-size: 0.8vw;
+}
+
+#examBox {
+    margin-top: -0.3vw;
+    margin-left: 0.5vw;
+    width: 1.4vw;
+}
+
+/*Fourth Line*/
+
+#fourthLine {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+#coloredBa {
+    display: flex;
+    margin-top: 0.2vw;
+    margin-bottom: 0vw;
+}
+
+#boxColor {
+    margin-top: -0.4vw;
+    margin-left: 0.5vw;
+    width: 1.4vw;
+}
+
+
+#whatBind {
+    display: flex;
+    margin-top: -0.6vw;
+}
+
+.specText {
+    font-weight: 700;
+    margin-left: 0.3vw;
+}
+
+#numberCopies {
+    display: flex;
+    font-size: 0.8vw;
+    margin-left: 2vw;
+}
+
+#contactDeets {
+    font-weight: 700;
+    font-size: 0.8vw;
+    margin-top: -0.9vw;
+}
+
+.infoLine {
+    display: flex;
+    font-size: 0.8vw;
+    margin-top: 0.1vw;
+}
+
+.contactItem {
+    font-weight: 700;
+    margin-left: 0.5vw;
+    
+}

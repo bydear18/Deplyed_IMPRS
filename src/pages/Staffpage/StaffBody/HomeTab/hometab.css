@@ -1,0 +1,98 @@
+
+#tabCont {
+    display:flex;
+    justify-content: space-evenly;
+    flex-direction:column;
+    margin: 6vw;
+}
+
+.Htab {
+    padding-top: 0.65vw;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.75vw;
+    width: 15vw;
+    height: 2.5vw;
+    background-color: slategray;
+    font-weight: 700;
+    color: gainsboro;
+    text-align: center;
+}
+
+.Htab:hover {
+    cursor:pointer;
+}
+
+.Hactive-tab {
+    background: white;
+    color: var(--PrimaryColor);
+    border-width: 0.1vw;
+    border-style: solid;
+    border-radius: 0.3vw;
+    transform: scale(1.05);
+}
+
+.Hactive-tab::before {
+    content: "";
+    display:flex;
+}
+
+.Hcontentpos {
+    display:block;
+    position: absolute;
+    margin-top: -18.5vw;
+    margin-left: 22.5vw;
+    /* margin-right: 154px; */
+    margin-right: 8vw;
+    padding-left: 96.25px;
+    padding-top: 3vw;
+    padding-bottom: 5vw;
+    padding-right: 96.25px;
+    border-width: 0.1vw;
+    border-style: solid;
+    border-color: var(--PrimaryColor);
+    border-radius: 0.7vw;
+    background-color: rgba(76, 33, 124, 0.5);
+}
+
+.active-Hcontent {
+    display:block;
+}
+
+.Hcontent {
+    display:none;
+}
+
+p {
+    font-size: 0.8vw;
+    text-align: justify;
+    line-height: normal;
+    opacity: 1 !important;
+    color:black;
+}
+
+h1 {
+    color: black;
+}
+
+.homeText {
+    resize: none;
+    width: 55vw;
+    height: 15vw !important;
+    color: black;
+}
+
+#adminHomeHeader{
+    display:flex;
+    justify-content:space-between;
+}
+
+#adminEdit{
+    border-radius: 20px;
+    border: 0;
+    background-color: var(--PrimaryColor);
+    height: 2vw;
+    width: 6vw;
+    color: var(--MainYellow);
+    font-weight: 700;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}

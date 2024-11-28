@@ -1,0 +1,59 @@
+#pendingTable {
+    transform:scale(0.8);
+    width:100vw;
+    border-radius: 1vw !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+}
+
+#historyHeader{
+    justify-content: space-between;
+}
+.claimed {
+    background-color: yellow;
+    color: black;
+}
+
+#markComplete {
+    width: 10vw;
+    height: 2.3vw;
+    font-size: 1vw;
+    border-radius: 0.6vw;
+    font-weight: bold;
+    border:0;
+    margin-left: 2vw;
+    background-color: #fcab14;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    color: #f5f5f5;
+    border-width: 0.1vw;
+    margin-top: -0.5vw;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+#tableOfComments{
+    margin-top: -15vw;
+    float: right;
+    width: 40%;
+    margin-right: 100px;
+    font-size: 12px;
+}
+#markComplete:hover {
+        border-style: solid;
+        border-width: 0.1vw;
+        color: #fcab14;
+        box-shadow: inset 200px 0 0 0 #ececec;
+}
+
+#getRequest {
+    position: absolute;
+    bottom: 2.6vw;
+    right: 15vw;
+    /* border-style: solid;
+    border-width: 0.1vw; */
+    text-decoration: underline;
+    padding: 0.3vw;
+    color: black;
+}
+
+#getRequest:hover {
+    color: var(--PrimaryColor);
+}
