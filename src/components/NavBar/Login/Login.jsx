@@ -37,7 +37,7 @@ const Login = () => {
           },
       };
   
-      fetch("https://backimps-production.up.railway.app/ction.up.railway.app/services/userLogin?email=" + email + "&password=" + password, requestOptions)
+      fetch("https://backimps-production.up.railway.app/services/userLogin?email=" + email + "&password=" + password, requestOptions)
           .then((response) => response.json())
           .then((data) => {
               if (data.status === true) {
@@ -51,7 +51,7 @@ const Login = () => {
                   localStorage.setItem("isHead", isHead);
                   localStorage.setItem("isStaff", isStaff);
   
-                  fetch("https://backimps-production.up.railway.app/ction.up.railway.app/services/getname?email=" + email, requestOptions)
+                  fetch("https://backimps-production.up.railway.app/services/getname?email=" + email, requestOptions)
                       .then((response) => response.json())
                       .then((data) => {
                           localStorage.setItem("firstName", data['firstName']);
@@ -62,7 +62,7 @@ const Login = () => {
                           localStorage.setItem("accType", data['accType']);
                           
                           
-                          fetch("https://backimps-production.up.railway.app/ction.up.railway.app/services/getid?email=" + email, requestOptions)
+                          fetch("https://backimps-production.up.railway.app/services/getid?email=" + email, requestOptions)
                           .then((response) => response.json())
                           .then((data) => {
                               localStorage.setItem("userID", data['userID']);
