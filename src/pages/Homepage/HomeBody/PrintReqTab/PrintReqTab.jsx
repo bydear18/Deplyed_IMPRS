@@ -42,6 +42,8 @@ function PrintReq({ onRequestSubmitted }) {
     const [comment, setComment] = useState();
     const [requestID, setRequestID] = useState('');
 
+    const firstName = localStorage.getItem("firstName");
+    const lastName = localStorage.getItem("lastName");
     const schoolId = localStorage.getItem("schoolId");
     const userID = localStorage.getItem("userID");
     const email = localStorage.getItem("email");
@@ -124,10 +126,13 @@ function PrintReq({ onRequestSubmitted }) {
     const upload = () => {
         // Check if the requestType is valid (not "Select")
         const isFormValid = requestType !== 'Select' && 
+                            colorType !== 'Select' &&
+                            paperType !== 'Select' &&
+                            paperSize !== 'Select' &&
                             noOfCopies > 0 && 
                             useDate !== '' &&
                             description !== '' &&
-                            (file != null || requestType === 'Exam');  // Allow submission if file is not selected and requestType is "Exam"
+                            (file != null || requestType === 'Exam' );  // Allow submission if file is not selected and requestType is "Exam"
     
         if (isFormValid) {
             const data = new FormData();
@@ -151,7 +156,7 @@ function PrintReq({ onRequestSubmitted }) {
             data.append('department', department);
             data.append('office', office);
             data.append('college', college);
-    
+
             const commentData = new FormData();
             commentData.append("sentBy", name);
             commentData.append("header", "Initial Comment");
@@ -276,6 +281,7 @@ function PrintReq({ onRequestSubmitted }) {
             tag = "MA0";
         }
     
+        console.log(role);
         if (value !== 'Select') {
             fetch("https://backimps-production.up.railway.app/records/generateid?fileType=" + value, requestOptions).then((response)=> response.json()
             ).then((data) => { setRequestID(tag + (data+1).toString());})

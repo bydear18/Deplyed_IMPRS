@@ -313,16 +313,7 @@ const Pending = () => {
                 setNoOfCopies(data['noOfCopies']);
                 setPaperSize(data['paperSize']);
                 setPaperType(data['paperType']);
-
-                if(college === ' '){
-                    setRole("Faculty Employee");
-                } else{
-                    setRole("Office Employee");
-                }
-
-
-                console.log(office);
-                console.log(role);
+                setRole(data['role']);
                 setUserID(data['userID']);
                 setEmail(data['requesterEmail']);
                 setDownloadURL(data['downloadURL']);
@@ -330,6 +321,7 @@ const Pending = () => {
                 setRequesterName(data['requesterName']);
                 setContactNumber(data['requesterNumber']);
 
+                console.log(role);
 
                 fetch("https://backimps-production.up.railway.app/records/requestid?id=" + event.data.requestID, requestOptions)
                     .then((response) => response.json())
@@ -399,6 +391,8 @@ const Pending = () => {
     const statusBodyTemplate = (rowData) => {
         return <Tag value={rowData.status} severity={getSeverity(rowData.status)} />;
     };
+
+    
 
     useEffect(() => {
         const requestOptions = {

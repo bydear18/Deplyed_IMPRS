@@ -13,6 +13,42 @@
     color: black;
 }
 
+.custom-complete {
+    background-color: #155724;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.custom-progress {
+    background-color: #004085;
+    color: #fffbfb;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.custom-pending {
+    background-color: rgb(240, 158, 34);
+    color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.custom-rejected {
+    background-color: #721c24;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.custom-claimed {
+    background-color: rgb(255, 252, 66);;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+
 #markComplete {
     width: 10vw;
     height: 2.3vw;

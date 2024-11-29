@@ -197,12 +197,14 @@ const History = ({reqHistory}) => {
 
           fetch("https://backimps-production.up.railway.app/requests/id?id=" + event.data.requestID + "&fileName=" + event.data.fileName, requestOptions).then((response)=> response.json()
             ).then((data) => { 
+                console.log(data);
                 setFileName(data['fileName']);
                 setDepartment(data['department']);
                 setFileType(data['fileType']);
                 setColored(data['color']);
                 setToStaple(data['stapled']);
                 setGiveExam(data['giveExam']);
+                setRole(data['role']);
                 setDesc(data['description']);
                 setRequestDate(data['requestDate']);
                 setUseDate(data['useDate']);
@@ -215,16 +217,8 @@ const History = ({reqHistory}) => {
                 setBindType(data['bindType']);
                 setPaperSize(data['paperSize']);
                 setPaperType(data['paperType']);
-
-                if(college === ' '){
-                    setRole("Faculty Employee");
-                } else{
-                    setRole("Office Employee");
-                }
-
-
-                console.log(office);
                 console.log(role);
+                console.log(requestID);
                 setUserID(data['userID']);
                 setEmail(data['requesterEmail']);
                 setDownloadURL(data['downloadURL']);
@@ -306,31 +300,28 @@ const History = ({reqHistory}) => {
         setShow('hide');
     }
 
-    const getSeverity = (status) => {
+    const getCustomSeverityClass = (status) => {
         switch (status) {
-            default:
-                return 'warning';
-
-            case 'Rejected':
-                return 'danger';
-
-            case 'Approved for Printing':
-                return 'info';
-
             case 'Ready to Claim':
-                return 'success';
-
+                return 'custom-completed';
+            case 'Approved for Printing':
+                return 'custom-progress'; 
+            case 'Waiting for Approval':
+                return 'custom-pending';
             case 'Claimed':
-                return 'success';
-            case '':
-                return null;
+                return 'custom-claimed';
+            case 'Rejected':
+                return 'custom-rejected';
+            default:
+                return 'custom-default'; 
         }
     };
-
-
-    const statusBodyTemplate = (rowData) => {
-        return <Tag value={rowData.status} severity={getSeverity(rowData.status)} />;
+    
+    const renderSeverityTag = (rowData) => {
+        const severityClass = getCustomSeverityClass(rowData.status);
+        return <span className={severityClass}>{rowData.status}</span>;
     };
+
     useEffect(() => {
         const requestOptions = {
             method: 'GET',
@@ -375,7 +366,7 @@ const History = ({reqHistory}) => {
                 <Column field="fileName" header="File Name"></Column>
                 <Column field="requestDate" header="Request Date"></Column>
                 <Column field="useDate" header="Use Date"></Column>
-                <Column field="status" header="Status" body={statusBodyTemplate}></Column>
+                <Column field="status" header="Status" body={renderSeverityTag}></Column>
             </DataTable>
             </div>
             <div id="overlay" className = {show} onClick={closeModal}></div>

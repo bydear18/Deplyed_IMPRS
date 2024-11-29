@@ -317,7 +317,7 @@ const History = ({reqHistory}) => {
                     } 
                     else if (data['status'] === 'Claimed') {
                         setStatus('Claimed');
-                        setStatusClass('capsuleCompleted');
+                        setStatusClass('capsuleClaimed');
                     } 
                     fetch("https://backimps-production.up.railway.app/comments/id?id=" + event.data.requestID, requestOptions).then((response)=> response.json()
                     ).then((data) => { 
@@ -365,31 +365,26 @@ const History = ({reqHistory}) => {
         setShow('hide');
     }
 
-
-    const getSeverity = (status) => {
+    const getCustomSeverityClass = (status) => {
         switch (status) {
-            default:
-                return 'warning';
-
-            case 'Rejected':
-                return 'danger';
-
-            case 'Approved for Printing':
-                return 'info';
-
             case 'Ready to Claim':
-                return 'success';
-
+                return 'custom-completed';
+            case 'Approved for Printing':
+                return 'custom-progress'; 
+            case 'Waiting for Aproval':
+                return 'custom-pending';
             case 'Claimed':
-                return 'success';
-
-            case '':
-                return null;
+                return 'custom-claimed';
+            case 'Rejected':
+                return 'custom-rejected';
+            default:
+                return 'custom-default'; 
         }
     };
-
-    const statusBodyTemplate = (rowData) => {
-        return <Tag value={rowData.status} severity={getSeverity(rowData.status)} />;
+    
+    const renderSeverityTag = (rowData) => {
+        const severityClass = getCustomSeverityClass(rowData.status);
+        return <span className={severityClass}>{rowData.status}</span>;
     };
 
     useEffect(() => {
@@ -440,16 +435,12 @@ const History = ({reqHistory}) => {
                 <Column field="fileName" header="File Name"></Column>
                 <Column field="requestDate" header="Request Date"></Column>
                 <Column field="useDate" header="Use Date"></Column>
-                <Column field="status" header="Status" body={statusBodyTemplate}sortable></Column>
+                <Column field="status" header="Status" body={renderSeverityTag}sortable></Column>
             </DataTable>
         </div>
         <div id="overlay" className={show} onClick={closeModal}></div>
         <div id="requestBox" className={show}>
-        <div id="infoPopOverlay" className={alert}></div>
-        <div id="infoPop" className={alert}>
-            <p>{alertMsg}</p>
-            <button id="infoChangeBtn" onClick={closeInfoPop}>Close</button>
-        </div>
+
             <div id='boxDeets'>
 
                 <div id='firstLine'>
@@ -521,6 +512,7 @@ const History = ({reqHistory}) => {
                         <Column field="content" header="Content"></Column>
                         <Column field="sentDate" header="Date"></Column>
                 </DataTable>
+                <button id='addComment' className={commentDisabled} onClick={handleAddComment}>Add Comment</button>
 
                     <div id='columnizer'>
                         {status === 'Approved for Printing' && (

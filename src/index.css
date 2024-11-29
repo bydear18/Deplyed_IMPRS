@@ -368,7 +368,7 @@ input {
   scale: 1;
   color: rgb(255, 255, 255);
   margin-top: -25vw;
-  margin-left: 43vw;
+  margin-left: 45vw;
   transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
 

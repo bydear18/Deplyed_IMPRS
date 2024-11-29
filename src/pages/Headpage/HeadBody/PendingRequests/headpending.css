@@ -301,6 +301,23 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
+.capsuleClaimed {
+    text-align: center;
+    width: 8.5vw;
+    font-size: 0.7vw;
+    font-weight: 700;
+    height: 1.2vw;
+    padding: 0;
+    border-style: solid;
+    border-width: 0.1vw;
+    border-color: rgb(255, 254, 174);
+    border-radius: 2vw;
+    margin-top: 1.2dvh;
+    margin-left: 1.4vw;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 252, 66);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
 #typeOfFile {
     margin-top: 1dvh;
     margin-left: 1vw;

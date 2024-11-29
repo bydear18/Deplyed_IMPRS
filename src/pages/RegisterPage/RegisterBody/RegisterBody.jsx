@@ -133,7 +133,7 @@ const RegisterBody = () => {
             infoPop('Make sure your passwords match! Try again.');
             return;
         }
-
+        const date = new Date().toISOString();
         // Check for existing email
         fetch(`https://backimps-production.up.railway.app/services/exists?email=${email}`, requestOptionsGET)
             .then((response) => response.json())
@@ -149,7 +149,7 @@ const RegisterBody = () => {
                                 infoPop('That School ID is already in use! Please use another School ID.');
                             } else {
                                 // Proceed with registration
-                                fetch(`https://backimps-production.up.railway.app/services/NewUserRegistration?firstName=${firstName}&lastName=${lastName}&password=${password}&email=${email}&schoolId=${schoolId}&employeeType=${employeeType}&role=${role}&adminVerified=${adminVerified}&college=${college}&department=${department}&office=${office}`, requestOptionsPOST)
+                                fetch(`https://backimps-production.up.railway.app/services/NewUserRegistration?firstName=${firstName}&lastName=${lastName}&password=${password}&email=${email}&schoolId=${schoolId}&employeeType=${employeeType}&role=${role}&adminVerified=${adminVerified}&college=${college}&department=${department}&office=${office}&createdDate=${date}`, requestOptionsPOST)
                                     .then((response) => response.json())
                                     .then(() => {
                                         infoPop("Registration successful! Wait for admin's confirmation", true);

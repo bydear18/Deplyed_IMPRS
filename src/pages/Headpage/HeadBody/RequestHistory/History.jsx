@@ -251,17 +251,8 @@ const History = ({reqHistory}) => {
                 setColorType(data['colored']);
                 setNoOfCopies(data['noOfCopies']);
                 setPaperSize(data['paperSize']);
-                setPaperType(data['paperType']);
-
-                if(college === ' '){
-                    setRole("Faculty Employee");
-                } else{
-                    setRole("Office Employee");
-                }
-
-
-                console.log(office);
-                console.log(role);
+                setPaperType(data['paperType']);   
+                setRole(data['role']);
                 setUserID(data['userID']);
                 setEmail(data['requesterEmail']);
                 setDownloadURL(data['downloadURL']);
@@ -293,7 +284,7 @@ const History = ({reqHistory}) => {
                         setStatusClass('capsuleCompleted');
                     } else if (data['status'] === 'Claimed') {
                         setStatus('Claimed');
-                        setStatusClass('capsuleCompleted');
+                        setStatusClass('capsuleClaimed');
                     } 
                     fetch("https://backimps-production.up.railway.app/comments/id?id=" + event.data.requestID, requestOptions).then((response)=> response.json()
                     ).then((data) => { 
@@ -342,29 +333,26 @@ const History = ({reqHistory}) => {
     }
 
 
-    const getSeverity = (status) => {
+    const getCustomSeverityClass = (status) => {
         switch (status) {
-            default:
-                return 'warning';
-
-            case 'Rejected':
-                return 'danger';
-
-            case 'Approved for Printing':
-                return 'info';
-
             case 'Ready to Claim':
-                return 'success';
-
+                return 'custom-completed';
+            case 'Approved for Printing':
+                return 'custom-progress'; 
+            case 'Waiting for Approval':
+                return 'custom-pending';
             case 'Claimed':
-                return 'success';
-            case '':
-                return null;
+                return 'custom-claimed';
+            case 'Rejected':
+                return 'custom-rejected';
+            default:
+                return 'custom-default'; 
         }
     };
-
-    const statusBodyTemplate = (rowData) => {
-        return <Tag value={rowData.status} severity={getSeverity(rowData.status)} />;
+    
+    const renderSeverityTag = (rowData) => {
+        const severityClass = getCustomSeverityClass(rowData.status);
+        return <span className={severityClass}>{rowData.status}</span>;
     };
 
         useEffect(() => {
@@ -412,7 +400,7 @@ const History = ({reqHistory}) => {
                 <Column field="fileName" header="File Name"></Column>
                 <Column field="requestDate" header="Request Date"></Column>
                 <Column field="useDate" header="Use Date"></Column>
-                <Column field="status" header="Status" body={statusBodyTemplate}sortable></Column>
+                <Column field="status" header="Status" body={renderSeverityTag}sortable></Column>
             </DataTable>
         </div>
         <div id="overlay" className={show} onClick={closeModal}></div>
