@@ -1,0 +1,10 @@
+.alogin-container{
+    background-color: var(--SecondaryColor);
+    border-radius: 0.6vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 28vw;
+    height: 25vw;
+    padding:5vh;
+    margin:auto;
+    align-items: center;
+}

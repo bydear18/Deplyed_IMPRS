@@ -1,0 +1,107 @@
+.dashboard-container {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 50px;
+}
+
+
+.box {
+  width: 250px;
+  margin: 5px;
+  height: 70px;
+  background-color: #f0f0e6;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  padding: 10px;
+}
+
+.box:hover {
+  transform: scale(1.05);
+}
+
+.content-box {
+  display: flex;
+  align-items: center;
+}
+
+.selected-date-box {
+  width: 100%;
+  height: 200px;
+  border-radius:10%;
+  background-color: rgb(219, 219, 219);
+  padding: 10px;
+}
+
+.icon {
+  font-size: 15px;
+  margin-top: -25px;
+  margin-right: 15px;
+}
+
+.box-text {
+  font-size: 12px;
+  margin-bottom: -35px;
+  margin-left: -25px;
+  color: #333333;
+}
+
+.extra-box {
+  width: 80px;
+  height: 50px;
+  background-color: #8f271a;
+  border-radius: 10px;
+}
+
+.count{
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #f4c108;
+  font-size: 25px;
+}
+
+.box-container .box:hover .extra-box {
+  background-color: #681016;
+}
+
+
+.calendar-container {
+  margin-top: -40px;
+  background-color: #333333;
+  width: 500px;
+  height: 650px;
+  padding: 25px;
+  border-radius: 2%;
+  flex-direction: column;
+  margin-left: 200px;
+  margin-right: 100px;
+  flex-shrink: 0; 
+}
+
+.color-indicators {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 100px;
+  flex-shrink: 0; 
+}
+
+.calendar-header {
+  text-align: center;
+  font-size: 1.5em;
+  color: #f4c108;
+}
+
+
+.react-calendar {
+  font-size: 16px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  margin-left: 50px;
+}

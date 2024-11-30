@@ -1,0 +1,273 @@
+
+#userPage{
+    width: 100%;
+    height: 50vw;
+    background: linear-gradient(2deg, rgba(255,226,145,0.9500175070028011) 30%, rgba(255,249,234,0.6811099439775911) 53%, rgba(255,255,255,0.5270483193277311) 74%, rgba(255,225,225,0) 92%, rgba(199,136,136,0) 100%);
+
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal.open {
+    display: block;
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+#accWhole {
+    position: absolute;
+    left: 25vw;
+    top: 11vw;
+}
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    z-index: 999; 
+}
+.confirm-modal{
+    background-color: #fff;
+    padding: 25px;
+}
+.delete-button{
+    margin: 10px 0px 10px 10px;
+    padding: 5px 10px; 
+    border: none;
+    background-color: #8f271a;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.confirm-modal button{
+    padding: 5px 10px; 
+    border: none;
+    background-color: #8f271a;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    color: white;
+    cursor: pointer;
+    margin-top: 25px;
+    margin-left: 100px;
+    border-radius: 3px;
+}
+.staff-container {
+    background: white; 
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 500px;
+    width: 100%; 
+}
+#accCont {
+    position: relative;
+    width: 50vw;
+    height: 36vw;
+    border-style: solid;
+    border-width: 0;
+    border-radius: 0.5vw;
+    background-color: rgba(235, 235, 235,0.8);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#infoPop {
+    background: white; 
+    border-radius: 8px; 
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
+    text-align: center; 
+}
+
+.accept-button{
+    margin: 10px 0px 10px 10px;
+    padding: 5px 10px; 
+    border: none;
+    background-color: #24b437;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+.accept-button:hover{
+    margin: 10px 0px 10px 10px;
+    padding: 5px 10px; 
+    border: none;
+    background-color: #1b8529;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+  .decline-button {
+    margin: 10px 0px 10px 10px;
+    padding: 5px 10px; 
+    border: none;
+    background-color: #8f271a;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  .decline-button:hover {
+    margin: 10px 0px 10px 10px;
+    padding: 5px 10px; 
+    border: none;
+    background-color: #470a0f;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+#accDivider {
+    position: absolute !important;
+    margin-left: 25vw;
+    margin-top: 1.6vw;
+    border-style: solid;
+    border-width: 0.2px;
+    border-color: gray;
+    width: 1px;
+    height: 32.5vw;
+}
+
+#accIcon {
+    position: relative;
+    top: 2.7vw;
+    left: 6.85vw;
+    z-index: 1;
+    opacity: 1;
+    width: 11.5vw;
+    filter: drop-shadow(-1px 9px 10px #000000);
+}
+
+
+#dant {
+    margin-left:31.3vw;
+    font-size: 1vw;
+    border-radius: 20px;
+    width: 13vw;
+    font-weight: 700;
+    color: var(--MainYellow);
+    border: 0;
+    background-color: var(--PrimaryColor);
+    height: 2.2vw;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+#dant:hover {
+    background-color:  #681016;
+}
+
+#dant:active {
+    background-color: #681016;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    transform: translateY(4px);
+}
+
+.custom-data-table {
+    background-color: #f0f8ff; 
+    color: #333333; 
+}
+
+.custom-data-table .p-datatable-thead > tr > th {
+    background-color: #e48d8e; 
+    color: white; 
+}
+
+.custom-data-table .p-datatable-tbody > tr > td {
+    border: 1px solid #dcdcdc; 
+}
+
+.custom-data-table .p-datatable-tbody > tr:hover {
+    background-color: #f9f7c9; 
+}
+
+#usersTable {
+    transform:scale(0.8);
+    width:100vw;
+    border-radius: 1vw !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+}
+
+#logOut{
+    margin-left:43vw;
+    font-size: 1vw;
+    border-radius: 20px;
+    width: 14vw;
+    font-weight: 700;
+    color: #f4c108;
+    border: 0;
+    background-color: #8f271a;
+    height: 2.2vw;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+#logOut:hover{
+    margin-left:43vw;
+    font-size: 1vw;
+    border-radius: 20px;
+    width: 14vw;
+    font-weight: 700;
+    color: #8f271a;
+    border: 0;
+    background-color: #f4c108;
+    height: 2.2vw;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+#addStaff {
+    margin-left:78vw;
+    font-size: 1vw;
+    border-radius: 20px;
+    width: 10vw;
+    font-weight: 700;
+    color: #8f271a;
+    border: 0;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+    background-color: #f4c108;
+    height: 2.2vw;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  }
+
+#addStaff:hover {
+margin-left:78vw;
+font-size: 1vw;
+border-radius: 20px;
+width: 10vw;
+font-weight: 700;
+color: #f4c108;
+border: 0;
+margin-top: 3vw;
+margin-bottom: 3vw;
+background-color: #8f271a;
+height: 2.2vw;
+box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
